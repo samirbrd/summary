@@ -29,6 +29,8 @@ df_position_mc=pd.merge(df_position_mc,df_strategy,on='Strategy')
 cols=cols=['ID','Strategy', 'Position', 'Trade Price', 'Trade Time', 'Eval Time', 'Status']
 df_position=df_position[cols]
 df_position_mc=df_position_mc[cols]
+df_position=df_position.sort_values('ID')
+df_position_mc=df_position_mc.sort_values('ID')
 
 total_position=df_position['Position'].sum()
 total_position_mc=df_position_mc['Position'].sum()
