@@ -22,12 +22,14 @@ file_string_2=path_string_1+'strategypositionmc.csv'
 df_position_mc=pd.read_csv(file_string_2)
 file_string_3=path_string_1+'positionsummary.csv'
 print(df_position_mc.head())
-# # df_strategy=pd.read_csv(file_string_2)
-# df_position_1=pd.read_csv(path_string_1+'Positions.csv')
-# df_position=pd.concat([df_position,df_position_1])
-#df_position=df_position.merge(df_strategy,left_on='Strategy',right_on='Strategy')
-#cols=['ID','Strategy','Position','Trade Price','Trade Time','Eval Time','Status']
-#df_position=df_position[cols]
+file_string_4=path_string_1+'Strategy.csv'
+df_strategy=pd.read_csv(file_string_4)
+df_position=pd.merge(df_position,df_strategy,on='Strategy')
+df_position_mc=pd.merge(df_position_mc,df_strategy,on='Strategy')
+cols=cols=['ID','Strategy', 'Position', 'Trade Price', 'Trade Time', 'Eval Time', 'Status']
+df_position=df_position[cols]
+df_position_mc=df_position_mc[cols]
+
 total_position=df_position['Position'].sum()
 total_position_mc=df_position_mc['Position'].sum()
 add_selectbox = st.sidebar.selectbox(
