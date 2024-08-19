@@ -21,7 +21,7 @@ df_position=pd.read_csv(file_string_1)
 file_string_2=path_string_1+'strategypositionmc.csv'
 df_position_mc=pd.read_csv(file_string_2)
 file_string_3=path_string_1+'positionsummary.csv'
-print(df_position_mc.head())
+#print(df_position_mc.head())
 file_string_4=path_string_1+'strategy.csv'
 df_strategy=pd.read_csv(file_string_4)
 df_position=pd.merge(df_position,df_strategy,on='Strategy')
